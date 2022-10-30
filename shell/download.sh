@@ -70,8 +70,8 @@ for files in ${quality[@]}; do
 	fi
 
 done
-
-curl -sS "http://127.0.0.1:8888/download/done?slug=${slug}"
-sleep 2
-curl -sS "http://127.0.0.1:8888/download/start?sv_ip=${localip}"
-exit 1
+echo "download done"
+#curl -sS "http://127.0.0.1:8888/download/done?slug=${slug}"
+#sleep 2
+#curl -sS "http://127.0.0.1:8888/download/start?sv_ip=${localip}"
+#exit 1
