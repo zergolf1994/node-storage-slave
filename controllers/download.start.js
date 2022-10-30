@@ -79,7 +79,7 @@ module.exports = async (req, res) => {
             if (get_token?.token) {
               // delete token
               shell.exec(
-                `sudo rm -rf /home/files/${get_token?.token}/`,
+                `sudo rm -rf /home/public/${ovdl?.slug}/`,
                 { async: false, silent: false },
                 function (data) {}
               );
@@ -281,7 +281,7 @@ module.exports = async (req, res) => {
       }
 
       shell.exec(
-        `bash /home/node/shell/download.sh ${data?.slug}`,
+        `bash /home/slave/shell/download.sh ${data?.slug}`,
         { async: false, silent: false },
         function (data) {}
       );

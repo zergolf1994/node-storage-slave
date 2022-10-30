@@ -1,12 +1,12 @@
 {
-    "name": "zembed-slave",
+    "name": "zembed-storage-slave",
     "version": "1.0.0",
     "description": "Free",
     "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon server.js",
-        "pm2": "pm2 start cluster.js --name=zembed-slave"
+        "pm2": "pm2 start cluster.js --name=zembed-storage-slave"
     },
     "keywords": [],
     "author": "zembed.xyz",

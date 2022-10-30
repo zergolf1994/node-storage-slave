@@ -11,7 +11,6 @@ router.get("/run", require("./controllers/run"));
 router.get("/download/start", require("./controllers/download.start"));
 router.get("/download/data", require("./controllers/download.data"));
 router.get("/download/done", require("./controllers/download.done"));
-router.get("/disk/update", require("./controllers/disk.update"));
 //server
 router.get("/server/create", require("./controllers/server.create"));
 //gdrive info

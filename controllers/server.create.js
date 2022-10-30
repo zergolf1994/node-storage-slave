@@ -2,7 +2,7 @@
 
 const path = require("path");
 const fs = require("fs");
-const Storage = require("../modules/Mysql/Storage");
+const Servers = require("../modules/Mysql/Servers");
 
 module.exports = async (req, res) => {
   const { sv_ip , sv_name } = req.query;
@@ -11,10 +11,10 @@ module.exports = async (req, res) => {
 
     let where = {},data = {};
     where.sv_ip = sv_ip;
-    where.type = "storage";
+    where.type = "storage-slave";
 
     //find server
-    const ServerExists = await Storage.findOne({ where });
+    const ServerExists = await Servers.findOne({ where });
 
     if(!ServerExists){
 
@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
         data.sv_name = sv_name || sv_ip;
         data.type = "storage";
 
-        const insert = await Storage.create(data);
+        const insert = await Servers.create(data);
 
         if(insert?.id){
             return res.json({ status: true , msg: `${sv_ip} created` });
