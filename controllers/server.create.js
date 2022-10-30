@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
 
     let where = {},data = {};
     where.sv_ip = sv_ip;
-    where.type = "storage-slave";
+    where.type = "slave";
 
     //find server
     const ServerExists = await Servers.findOne({ where });
@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
 
         data.sv_ip = sv_ip;
         data.sv_name = sv_name || sv_ip;
-        data.type = "storage";
+        data.type = "slave";
 
         const insert = await Servers.create(data);
 

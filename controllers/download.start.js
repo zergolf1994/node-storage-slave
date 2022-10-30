@@ -56,7 +56,7 @@ module.exports = async (req, res) => {
           let ovdl = await Progress.findOne({
             where: {
               sid: sv?.id,
-              type: "storage-slave",
+              type: "slave",
               [Op.and]: Sequelize.literal(
                 `ABS(TIMESTAMPDIFF(SECOND , createdAt , NOW())) >= ${stg_auto_cancle}`
               ),
@@ -79,7 +79,7 @@ module.exports = async (req, res) => {
             if (get_token?.token) {
               // delete token
               shell.exec(
-                `sudo rm -rf /home/public/${ovdl?.slug}/`,
+                `sudo rm -rf /home/public/${ovdl?.token}/`,
                 { async: false, silent: false },
                 function (data) {}
               );
@@ -108,7 +108,7 @@ module.exports = async (req, res) => {
             let ca_ovdl = await Progress.findOne({
               where: {
                 sid: sv?.id,
-                type: "storage-slave",
+                type: "slave",
                 [Op.and]: Sequelize.literal(
                   `ABS(TIMESTAMPDIFF(SECOND , createdAt , NOW())) >= ${stg_auto_cancle}`
                 ),
@@ -255,7 +255,7 @@ module.exports = async (req, res) => {
       data.uid = file?.uid;
       data.sid = ServerEmpty?.id;
       data.fid = file?.id;
-      data.type = "storage-slave";
+      data.type = "slave";
       data.slug = file?.slug;
       data.quality = "default";
 
@@ -318,7 +318,7 @@ module.exports = async (req, res) => {
       data.uid = file?.uid;
       data.sid = ServerEmpty?.id;
       data.fid = file?.id;
-      data.type = "storage-slave";
+      data.type = "slave";
       data.slug = file?.slug;
 
       const insert = await Progress.create(data);

@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
       data = {};
 
     //find process
-    where_data.type = "storage-slave";
+    where_data.type = "slave";
     where_data.slug = slug;
     //where_data.quality = "default";
 
