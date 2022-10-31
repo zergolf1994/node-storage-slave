@@ -64,13 +64,14 @@ for files in ${quality[@]}; do
 			sleep 1
 			mv ${tmp_file} ${file_save}
 			sudo rm -rf ${tmp_download}
-			curl -sS "http://127.0.0.1:8888/download/sync?slug=${slug}&quality=${quality}&token=${token}&file_name=file_${title}.${gdrive_ext}&slave_ip=${localip}"
 			#curl -sS "http://127.0.0.1:8888/download/done?slug=${slug}&quality=${quality}"
 			sleep 3
 		fi
 	fi
 
 done
+#curl -sS "http://127.0.0.1:8888/download/sync?slug=${slug}&quality=${quality}&token=${token}&file_name=file_${title}.${gdrive_ext}&slave_ip=${localip}"
+curl -sS "http://127.0.0.1:8888/download/sync?slug=${slug}&slave_ip=${localip}"
 echo "download done"
 #curl -sS "http://127.0.0.1:8888/download/done?slug=${slug}"
 #sleep 2

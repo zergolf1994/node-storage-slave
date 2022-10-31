@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
       return res.json({ status: false });
       // remove file and cancle download
     }
-    let host = `http://${storage?.sv_ip}:8888/slave/start?slug=${slug}&quality=${quality}&token=${token}&file_name=${file_name}&slave_ip=${slave_ip}`;
+    let host = `http://${storage?.sv_ip}:8888/slave/start?slug=${slug}&slave_ip=${slave_ip}`;
     let video = `http://${slave_ip}:8888/${token}/${file_name}`;
 
     http.get(host, function (resp) {
